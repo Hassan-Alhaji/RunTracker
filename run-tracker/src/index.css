@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+:root {
+  --bg-color: #000000;
+  --surface-color: #111111;
+  --surface-color-light: #1A1A1A;
+  --primary-color: #ccff00; /* Neon Lime Green from logo */
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  
+  --danger-color: #ff3333;
+  --warning-color: #ff9900;
+  --success-color: #00cc44;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Utility Classes */
+.h1-huge {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--primary-color);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -1px;
+}
+
+.text-metric {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.text-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.25rem;
+}
+
+.text-accent {
+  color: var(--primary-color);
+}
+
+/* Map Overrides */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Under bottom sheets */
+  border-radius: 12px;
+}
+
+/* Ensure empty space is black */
+.leaflet-container {
+  background: var(--surface-color-light) !important;
+}
+
+/* Button Resets */
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: #000;
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  color: #fff;
+}
+
+.btn-surface {
+  background-color: var(--surface-color-light);
+  color: var(--text-primary);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Utilities */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.gap-2 { gap: 0.5rem; }
+.gap-4 { gap: 1rem; }
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+.text-center { text-align: center; }
