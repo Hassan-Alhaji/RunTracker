@@ -27,12 +27,8 @@ services:
     buildCommand: npm install && npm run build
     staticPublishPath: dist
     envVars:
-      # Inject the Backend Public URL into the Frontend build so it knows where to send requests!
       - key: VITE_API_URL
-        fromService:
-          type: web
-          name: sharqiah-backend
-          envVarKey: RENDER_EXTERNAL_URL
+        value: https://sharqiah-backend.onrender.com
 
 databases:
   # -------------------------------------
