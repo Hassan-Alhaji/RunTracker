@@ -6,7 +6,6 @@ services:
     name: sharqiah-backend
     env: node
     rootDir: run-tracker-server
-    repo: https://github.com/HassanAlhaji/run-tracker # Placeholder, replaced implicitly by Render dashboard if deployed from UI, or use GitHub repo sync.
     buildCommand: npm install
     startCommand: node index.js
     envVars:
