@@ -1,0 +1,43 @@
+services:
+  # -------------------------------------
+  # 1) The Backend API (Node.js)
+  # -------------------------------------
+  - type: web
+    name: sharqiah-backend
+    env: node
+    rootDir: run-tracker-server
+    repo: https://github.com/HassanAlhaji/run-tracker # Placeholder, replaced implicitly by Render dashboard if deployed from UI, or use GitHub repo sync.
+    buildCommand: npm install
+    startCommand: node index.js
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: sharqiah-db
+          property: connectionString
+      - key: NODE_ENV
+        value: production
+
+  # -------------------------------------
+  # 2) The Frontend (Vite/React)
+  # -------------------------------------
+  - type: web
+    name: sharqiah-frontend
+    env: static
+    rootDir: run-tracker
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      # Inject the Backend Public URL into the Frontend build so it knows where to send requests!
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: sharqiah-backend
+          envVarKey: RENDER_EXTERNAL_URL
+
+databases:
+  # -------------------------------------
+  # 3) Free Managed PostgreSQL Database
+  # -------------------------------------
+  - name: sharqiah-db
+    databaseName: sharqiahteam
+    user: sharqiah_admin
